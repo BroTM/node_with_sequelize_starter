@@ -1,0 +1,8 @@
+.env
+
+# Node artifact files
+node_modules/
+dist/
+
+# Log files
+*.log
