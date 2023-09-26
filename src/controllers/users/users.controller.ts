@@ -11,7 +11,7 @@ class UserMethod implements IUserMethod {
         return new User();
     }
     
-    public async findAll({limit=10, start}: paginateDto, filter_args: filterDto ): Promise<User[] | []> {
+    public async findAll({limit=10, start}: paginateDto, filter_args?: filterDto ): Promise<User[] | []> {
         return [];
     }
 
