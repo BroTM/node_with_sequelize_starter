@@ -14,7 +14,7 @@ class User extends Model<InferAttributes<User, { omit: 'projects' }>, InferCreat
   declare projects?: NonAttribute<Project[]>;
 
   get fullName(): NonAttribute<string> {
-    return this.first_name + this.last_name;
+    return [this.first_name, this.last_name].join(' ');
   }
 
   declare static associations: {
@@ -35,6 +35,7 @@ User.init(
     },
     last_name: {
       type: new DataTypes.STRING(25),
+      defaultValue: null,
       allowNull: true
     },
     createdAt: DataTypes.DATE,

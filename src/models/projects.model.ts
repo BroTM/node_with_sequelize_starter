@@ -34,4 +34,6 @@ Project.init({
     sequelize
 });
 
+Project.belongsTo(User);
+
 export default Project;
