@@ -1,14 +1,12 @@
-import {NextFunction, Request, Response, Router} from 'express';
-import sequelize from '../database/mysql';
+import apiRouter from './api.route';
+import userRouter from "./web/user.route";
+
+import {Router} from 'express';
 const router = Router();
 
-/* GET home page. */
-router.get('/', function(req: Request, res: Response, next: NextFunction) {
-  res.render('index', { title: 'Express' });
-});
 
-router.get('/checking_db_connection', (req: Request, res: Response, next: NextFunction) => {
-  console.log(sequelize);
-})
+router.use("/api/v1/", apiRouter);
+router.use("/users", userRouter);
+
 export default router;
-// module.exports = router;
+

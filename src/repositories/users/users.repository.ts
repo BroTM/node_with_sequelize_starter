@@ -1,10 +1,10 @@
 import User from "../../models/users.model";
-import { createUserDto, deleteUserDto, updateUserDto } from "./users.dto";
+import { createUserDto, deleteUserDto, updateUserDto } from "../../dtos/users.dto";
 import { filterDto, paginateDto } from "../../dtos/common.dto";
 
-import {IUserMethod} from "./users.interface";
+import {IUserRepository} from "./users.interface";
 
-class UserMethod implements IUserMethod {
+class UserRepository implements IUserRepository {
 
     public async getOne(id: number) : Promise<User | null> {
 
@@ -17,7 +17,9 @@ class UserMethod implements IUserMethod {
 
     public async add(data: createUserDto): Promise<User> {
 
-        return new User();
+        const user = await User.create();
+
+        return user;
     }
     
     public async update(id: number, data: updateUserDto): Promise<User> {
@@ -29,4 +31,4 @@ class UserMethod implements IUserMethod {
     }
 }
 
-export default UserMethod;
+export default new UserRepository();

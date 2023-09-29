@@ -1,8 +1,8 @@
 import { filterDto, paginateDto } from "../../dtos/common.dto";
 import User from "../../models/users.model";
-import { createUserDto, updateUserDto, deleteUserDto } from "./users.dto";
+import { createUserDto, updateUserDto, deleteUserDto } from "../../dtos/users.dto";
 
-export interface IUserMethod {
+export interface IUserRepository {
     getOne: (id: number) => Promise<User | null>;
     findAll: ({limit=10, start}: paginateDto, filter_args?: filterDto ) => Promise<User[] | []>;
     add: (data: createUserDto) => Promise<User>;
