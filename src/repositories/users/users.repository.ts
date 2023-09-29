@@ -8,7 +8,11 @@ class UserRepository implements IUserRepository {
 
     public async getOne(id: number) : Promise<User | null> {
 
-        return new User();
+        let user = await User.findByPk(id);
+
+        if(!user) return Promise.reject("NO_TRANSACTION");
+
+        return user;
     }
     
     public async findAll({limit=10, start}: paginateDto, filter_args?: filterDto ): Promise<User[] | []> {

@@ -11,8 +11,15 @@ const sequelize = new Sequelize(
         pool: {
             max: 20,
             idle: 10000 //Remove a connection from the pool after the connection has been idle (not been used) for 10 seconds
+        },
+        dialectOptions: {
+            useUTC: false, // for reading from database
         }
     }
 );
+
+(async () => {
+    await sequelize.sync({ alter: true });
+})();
 
 export default sequelize;

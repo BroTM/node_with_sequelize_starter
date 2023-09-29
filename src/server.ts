@@ -6,8 +6,7 @@ import logger from 'morgan';
 import helmet from 'helmet';
 import 'dotenv/config';
 
-import indexRouter from './routes/index';
-// import usersRouter from './routes/users';
+import baseRouter from './routes/index';
 
 var app = express();
 
@@ -23,8 +22,7 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(logger(':date[clf] :remote-addr :remote-user :method :url :status :response-time ms'));
 
-app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+app.use('/', baseRouter);
 
 // catch 404 and forward to error handler
 // invalid path
