@@ -15,12 +15,12 @@ class Utils {
         return true;
       }
 
-      isNumber(value: any) {
-        return typeof value == "number" || typeof value == "string" && value.match(/^[0-9]+$/);
+      isNumber(value: any) : Boolean {
+        return (typeof value == "number" || typeof value == "string" && value.match(/^[0-9]+$/))? true: false;
       }
 
-      isUUid(value: any) {
-        return typeof value == "string" && value.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+      isUUid(value: any) : Boolean {
+        return typeof value == "string" && value.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i) ? true: false;
       }
 }
 
